@@ -1,0 +1,30 @@
+* To compile, mvn clean install
+* Run with java -jar target/SqlSync.jar <sqlsync.json> where sqlsync.json:
+{
+  "verbose":"verbose", -- Log to system out
+  "syncList":[{ -- Can be a list of databases to be synced
+    "dbHost":"localhost", -- Which host
+    "dbName":"test", -- Which database
+    "dbUser":"root", -- User with adim rights, needs to be able to drop and create procedures
+    "dbPassword":"", -- User password
+    "scriptFilePath":"C:/database", -- Where the scripts are located
+    "executeScript":"executeScript" -- If empty string, no script will be executed against the database, only the version_history table will be updated
+  }]
+}
+* The scripts must numbered from 1.sql - n.sql
+* The scripts will be executed in order
+* The scripts will only be executed once
+* If a script fails, it will be rollbacked, all sql statements are executed within a transaction
+* The scripts must be welformed, end all DELIMETERS, example:
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test`(
+    IN testInput TINYINT )
+BEGIN
+ 
+ DECLARE test1 INT;
+ DECLARE test2 DATETIME;
+ ...
+ ...
+END $$ -- Ending with the correct delimiter
+DELIMITER ;
+* Comments must start with "-- " 
