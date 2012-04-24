@@ -1,0 +1,19 @@
+{
+  "verbose":"verbose",
+  "syncList":[{
+    "dbHost":"",
+    "dbName":"",
+    "dbUser":"",
+    "dbPassword":"",
+    "scriptFilePath":"",
+    "executeScript":"executeScript"
+  },
+  {
+    "dbHost":"",
+    "dbName":"",
+    "dbUser":"",
+    "dbPassword":"",
+    "scriptFilePath":"",
+    "executeScript":"executeScript"
+  }]
+}
