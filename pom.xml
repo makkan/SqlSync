@@ -79,7 +79,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
-              <mainClass>se.comeon.sqlsync.SqlSync</mainClass>
+              <mainClass>sqlsync.SqlSync</mainClass>
             </manifest>
           </archive>
         </configuration>
