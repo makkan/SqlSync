@@ -1,7 +1,7 @@
-package se.comeon.sqlsync.groovy.pre
+package sqlsync.groovy.pre
 
-import se.comeon.sqlsync.groovy.ISql;
-import se.comeon.sqlsync.groovy.Log;
+import sqlsync.groovy.ISql;
+import sqlsync.groovy.Log;
 
 class PreSqlSync {
 	def log = Log.getInstance(this);

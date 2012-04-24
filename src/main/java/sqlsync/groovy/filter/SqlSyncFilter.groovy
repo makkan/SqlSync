@@ -1,7 +1,7 @@
-package se.comeon.sqlsync.groovy.filter
+package sqlsync.groovy.filter
 
-import se.comeon.sqlsync.groovy.ISql;
-import se.comeon.sqlsync.groovy.transaction.SqlSyncItem
+import sqlsync.groovy.ISql;
+import sqlsync.groovy.transaction.SqlSyncItem
 
 class SqlSyncFilter {
 	def scriptDir;

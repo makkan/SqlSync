@@ -1,4 +1,4 @@
-package se.comeon.sqlsync.groovy
+package sqlsync.groovy
 
 import java.sql.SQLException;
 

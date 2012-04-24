@@ -1,7 +1,7 @@
-package se.comeon.sqlsync.groovy.transaction
+package sqlsync.groovy.transaction
 
-import se.comeon.sqlsync.groovy.ISql;
-import se.comeon.sqlsync.groovy.Log;
+import sqlsync.groovy.ISql;
+import sqlsync.groovy.Log;
 
 class SqlSyncTransaction {
 	def log = Log.getInstance(this);

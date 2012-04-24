@@ -1,10 +1,10 @@
-package se.comeon.sqlsync.groovy
+package sqlsync.groovy
 
-import se.comeon.sqlsync.groovy.api.SqlSyncExecute;
-import se.comeon.sqlsync.groovy.filter.SqlSyncFilter;
-import se.comeon.sqlsync.groovy.post.PostSqlSync;
-import se.comeon.sqlsync.groovy.pre.PreSqlSync;
-import se.comeon.sqlsync.groovy.transaction.SqlSyncTransaction;
+import sqlsync.groovy.api.SqlSyncExecute;
+import sqlsync.groovy.filter.SqlSyncFilter;
+import sqlsync.groovy.post.PostSqlSync;
+import sqlsync.groovy.pre.PreSqlSync;
+import sqlsync.groovy.transaction.SqlSyncTransaction;
 
 class SqlSync implements SqlSyncExecute {
 	def log = Log.getInstance(this);

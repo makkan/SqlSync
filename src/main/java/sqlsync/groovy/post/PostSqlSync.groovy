@@ -1,8 +1,8 @@
-package se.comeon.sqlsync.groovy.post
+package sqlsync.groovy.post
 
-import se.comeon.sqlsync.groovy.ISql;
-import se.comeon.sqlsync.groovy.Log;
-import se.comeon.sqlsync.groovy.transaction.SqlSyncTransaction;
+import sqlsync.groovy.ISql;
+import sqlsync.groovy.Log;
+import sqlsync.groovy.transaction.SqlSyncTransaction;
 
 import java.sql.Date;
 
