@@ -1,15 +1,12 @@
 package sqlsync.groovy.transaction
 
-import sqlsync.groovy.ISql;
-import sqlsync.groovy.Log;
+import se.comeon.sqlsync.groovy.ISql;
+import se.comeon.sqlsync.groovy.Log;
 
 class SqlSyncTransaction {
 	def log = Log.getInstance(this);
 
 	def executeScript;
-	def static START_TRANSACTION = "START TRANSACTION";
-	def static COMMIT_TRANSACTION = "COMMIT";
-	def static ROLLBACK_TRANSACTION = "ROLLBACK";
 
 	def formatLine = { executeLine, line ->
 		return executeLine = executeLine + "\r\n" + line;
