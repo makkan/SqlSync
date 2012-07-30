@@ -1,4 +1,4 @@
-package sqlsync.groovy.transaction
+package se.comeon.sqlsync.groovy.transaction
 
 import se.comeon.sqlsync.groovy.ISql;
 import se.comeon.sqlsync.groovy.Log;
@@ -35,25 +35,30 @@ class SqlSyncTransaction {
 	};
 
 	def executeTransaction = { executeList, sqlSyncItem ->
+		boolean returnValue = true;
 		ISql.newInstance() { con ->
 			con.withTransaction {
 				try {
 					executeList.each { con.execute(it); }
 					con.commit();
 				} catch (Exception e) {
-					log.error("Sql error running " + sqlSyncItem.versionNumber , e);
+					log.error("Sql error running script " + sqlSyncItem.versionNumber , e);
+					returnValue = false;
 					sqlSyncItem.error = true;
 					sqlSyncItem.exception = e;
 					con.rollback();
 				}
 			};
 		};
+		return returnValue;
 	};
 
-	public void executeScript(sqlSyncItem) {
+	public boolean executeScript(sqlSyncItem) {
+		boolean returnValue = true;
 		if(executeScript) {
 			log.info("Syncing script " + sqlSyncItem.versionNumber + ISql.printString());
-			executeTransaction(getExecuteList(sqlSyncItem.scriptFile), sqlSyncItem);
+			returnValue = executeTransaction(getExecuteList(sqlSyncItem.scriptFile), sqlSyncItem);
 		}
+		return returnValue;
 	}
 }

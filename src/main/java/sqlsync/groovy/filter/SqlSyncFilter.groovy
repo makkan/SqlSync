@@ -1,7 +1,7 @@
-package sqlsync.groovy.filter
+package se.comeon.sqlsync.groovy.filter
 
-import sqlsync.groovy.ISql;
-import sqlsync.groovy.transaction.SqlSyncItem
+import se.comeon.sqlsync.groovy.ISql;
+import se.comeon.sqlsync.groovy.transaction.SqlSyncItem
 
 class SqlSyncFilter {
 	def scriptDir;
@@ -23,7 +23,7 @@ class SqlSyncFilter {
 				count = row.getAt(0);
 			};
 		}
-		return count > 0 ? true : false;
+		return count > 0;
 	};
 
 	public void execute() {

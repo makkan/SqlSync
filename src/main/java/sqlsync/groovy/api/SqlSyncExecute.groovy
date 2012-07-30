@@ -1,4 +1,4 @@
-package sqlsync.groovy.api
+package se.comeon.sqlsync.groovy.api
 
 interface SqlSyncExecute {
 

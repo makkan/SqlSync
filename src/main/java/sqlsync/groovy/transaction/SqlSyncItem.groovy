@@ -1,4 +1,4 @@
-package sqlsync.groovy.transaction
+package se.comeon.sqlsync.groovy.transaction
 
 class SqlSyncItem {
 	def scriptFile;

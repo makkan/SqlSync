@@ -1,4 +1,4 @@
-package sqlsync.groovy
+package se.comeon.sqlsync.groovy
 
 class Log {
 	def static logFile = new File("sqlsync.log");

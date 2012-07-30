@@ -1,10 +1,10 @@
-package sqlsync.groovy
+package se.comeon.sqlsync.groovy
 
-import sqlsync.groovy.api.SqlSyncExecute;
-import sqlsync.groovy.filter.SqlSyncFilter;
-import sqlsync.groovy.post.PostSqlSync;
-import sqlsync.groovy.pre.PreSqlSync;
-import sqlsync.groovy.transaction.SqlSyncTransaction;
+import se.comeon.sqlsync.groovy.api.SqlSyncExecute;
+import se.comeon.sqlsync.groovy.filter.SqlSyncFilter;
+import se.comeon.sqlsync.groovy.post.PostSqlSync;
+import se.comeon.sqlsync.groovy.pre.PreSqlSync;
+import se.comeon.sqlsync.groovy.transaction.SqlSyncTransaction;
 
 class SqlSync implements SqlSyncExecute {
 	def log = Log.getInstance(this);
@@ -32,12 +32,20 @@ class SqlSync implements SqlSyncExecute {
 		sqlSyncFilter.execute();
 		def syncList = sqlSyncFilter.getSyncList();
 		if(!syncList.empty) {
-			syncList.each {
-				sqlSyncTransaction.executeScript(it);
-			};
-
 			PostSqlSync postSqlSync = new PostSqlSync();
-			postSqlSync.execute(syncList, executeScript);
+			def index = 0;
+			def breakLoop = false;
+			def tempList = [];
+			while(index < syncList.size && !breakLoop) {
+				if(!sqlSyncTransaction.executeScript(syncList[index])) {
+					log.error("Error while executing, breaking loop");
+					breakLoop = true;
+				}
+				postSqlSync.insertVersionHistory(syncList[index]);
+				tempList.add(syncList[index]);
+				index++;
+			}
+			postSqlSync.execute(tempList, executeScript);
 		} else {
 			log.info("Nothing to sync" + ISql.printString());
 		}

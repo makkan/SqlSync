@@ -1,8 +1,8 @@
-package sqlsync.groovy.post
+package se.comeon.sqlsync.groovy.post
 
-import sqlsync.groovy.ISql;
-import sqlsync.groovy.Log;
-import sqlsync.groovy.transaction.SqlSyncTransaction;
+import se.comeon.sqlsync.groovy.ISql;
+import se.comeon.sqlsync.groovy.Log;
+import se.comeon.sqlsync.groovy.transaction.SqlSyncTransaction;
 
 import java.sql.Date;
 
@@ -77,7 +77,6 @@ class PostSqlSync {
 	public void execute(sqlSyncList, executeTransaction) {
 		initSummary();
 		sqlSyncList.each {
-			insertVersionHistory(it);
 			logResult(it, executeTransaction);
 			printLineSummary(it, executeTransaction);
 		}

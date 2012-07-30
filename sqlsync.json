@@ -1,0 +1,11 @@
+{
+  "verbose":"verbose",
+  "syncList":[{
+    "dbHost":"localhost",
+    "dbName":"test",
+    "dbUser":"root",
+    "dbPassword":"",
+    "scriptFilePath":"C:/dev/svn/database",
+    "executeScript":"executeScript"
+  }]
+}
