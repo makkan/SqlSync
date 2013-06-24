@@ -6,7 +6,8 @@
     "dbUser":"",
     "dbPassword":"",
     "scriptFilePath":"",
-    "executeScript":"executeScript"
+    "executeScript":"executeScript",
+    "environment":""
   },
   {
     "dbHost":"",
@@ -14,6 +15,7 @@
     "dbUser":"",
     "dbPassword":"",
     "scriptFilePath":"",
-    "executeScript":"executeScript"
+    "executeScript":"executeScript",
+    "environment":""
   }]
 }
